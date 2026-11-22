@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ØLVEX (OLVEX) – Ücretsiz sesli sohbet, ekran paylaşımı ve gruplar</title>
+<meta name="description" content="OLVEX (ØLVEX): arkadaşlarınla kristal net sesli sohbet, sesi kesmeden 2K 60 fps ekran paylaşımı, sohbet odaları, gruplar ve mesajlaşma. Ücretsiz, reklamsız.">
+<meta name="keywords" content="olvex, ølvex, sesli sohbet, ekran paylaşımı, oyun sohbeti, discord alternatifi, grup sohbet, türkçe sesli sohbet uygulaması">
+<link rel="canonical" href="https://olvexapp.github.io/">
+<meta name="theme-color" content="#0b1120">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ØLVEX">
+<meta property="og:title" content="ØLVEX – Arkadaşlarınla konuş, oyununu 2K yayınla">
+<meta property="og:description" content="Ücretsiz ve reklamsız sesli sohbet, ekran paylaşımı, gruplar ve sohbet odaları.">
+<meta property="og:url" content="https://olvexapp.github.io/">
+<meta property="og:image" content="https://olvexapp.github.io/icon-512.png">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"ØLVEX","alternateName":["OLVEX","Olvex"],"applicationCategory":"CommunicationApplication","operatingSystem":"Windows, Android, iOS, Web","url":"https://olvexapp.github.io/","description":"Arkadaşlarınla sesli sohbet, 2K 60 fps ekran paylaşımı, gruplar ve sohbet odaları.","offers":{"@type":"Offer","price":"0","priceCurrency":"TRY"}}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root { --bg: #070c18; --bg2: #0d1528; --bg3: #141f38; --line: #1e2b45; --text: #e6edf7; --dim: #8a9bb8; --ac: #34d399; --ac2: #22d3ee; --warm: #fbbf24; --bad: #f43f5e; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.55 "Nunito", "Segoe UI", Roboto, Arial, sans-serif; overflow-x: hidden; }
+a { color: inherit; }
+.wrap { width: min(1120px, 100% - 32px); margin: 0 auto; }
+.bgfx { position: fixed; inset: 0; z-index: -1; pointer-events: none; }
+.bgfx::before { content: ""; position: absolute; inset: -20%; filter: blur(90px); opacity: .55;
+  background: radial-gradient(circle at 20% 15%, rgba(16,185,129,.45), transparent 40%), radial-gradient(circle at 85% 10%, rgba(14,165,233,.35), transparent 40%), radial-gradient(circle at 60% 90%, rgba(167,139,250,.18), transparent 45%);
+  animation: drift 26s ease-in-out infinite alternate; }
+.bgfx::after { content: ""; position: absolute; inset: 0; background-image: linear-gradient(rgba(148,197,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(148,197,255,.05) 1px, transparent 1px); background-size: 44px 44px;
+  mask-image: radial-gradient(ellipse 70% 55% at 50% 20%, #000 20%, transparent 75%); -webkit-mask-image: radial-gradient(ellipse 70% 55% at 50% 20%, #000 20%, transparent 75%); }
+@keyframes drift { 50% { transform: translate(4vw, -3vh) scale(1.1); } }
+nav { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(14px); background: rgba(7,12,24,.72); border-bottom: 1px solid rgba(148,197,255,.08); }
+nav .wrap { display: flex; align-items: center; gap: 18px; height: 64px; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 900; letter-spacing: 4px; text-decoration: none; font-size: 18px; }
+.brand img { width: 34px; height: 34px; border-radius: 10px; }
+nav .links { display: flex; gap: 18px; margin-left: auto; font-weight: 700; color: var(--dim); }
+nav .links a { text-decoration: none; } nav .links a:hover { color: var(--text); }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 22px; border-radius: 14px; font-weight: 900; text-decoration: none; border: 1px solid transparent; transition: transform .15s, filter .15s, background .15s; cursor: pointer; font-size: 15px; }
+.btn:hover { transform: translateY(-2px); }
+.btn.pri { background: linear-gradient(135deg, var(--ac), var(--ac2)); color: #032018; box-shadow: 0 12px 34px rgba(16,185,129,.3); }
+.btn.pri:hover { filter: brightness(1.08); }
+.btn.sec { background: rgba(148,197,255,.06); border-color: rgba(148,197,255,.16); color: var(--text); }
+.btn.sm { padding: 8px 14px; border-radius: 11px; font-size: 14px; }
+header.hero { padding: 80px 0 40px; text-align: center; }
+.status { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 999px; background: rgba(148,197,255,.06); border: 1px solid rgba(148,197,255,.14); font-size: 13px; font-weight: 800; color: var(--dim); }
+.status i { width: 9px; height: 9px; border-radius: 50%; background: #64748b; }
+.status.on { color: #6ee7b7; } .status.on i { background: var(--ac); box-shadow: 0 0 0 0 rgba(52,211,153,.6); animation: ring 1.8s infinite; }
+.status.off { color: #fda4af; } .status.off i { background: var(--bad); }
+@keyframes ring { 100% { box-shadow: 0 0 0 10px transparent; } }
+.hero .logo { width: 96px; height: 96px; border-radius: 28px; margin: 26px auto 0; display: block; box-shadow: 0 20px 60px rgba(255,107,139,.3); animation: float 6s ease-in-out infinite; }
+@keyframes float { 50% { transform: translateY(-8px); } }
+.hero h1 { font-size: clamp(56px, 10vw, 112px); line-height: .95; margin: 22px 0 8px; font-weight: 900; letter-spacing: 12px;
+  background: linear-gradient(115deg, #fff 20%, #a7f3d0 50%, #67e8f9 80%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hero .alt { color: var(--dim); font-weight: 800; letter-spacing: 6px; font-size: 13px; margin: 0; }
+.hero p.lead { font-size: clamp(17px, 2.2vw, 21px); color: rgba(226,236,250,.8); max-width: 640px; margin: 22px auto 30px; }
+.hero .ctas { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.hero small.note { display: block; margin-top: 14px; color: var(--dim); font-size: 13px; }
+.shots { position: relative; margin: 54px auto 0; max-width: 980px; }
+.shots img { width: 100%; border-radius: 18px; border: 1px solid rgba(148,197,255,.14); box-shadow: 0 40px 100px rgba(0,0,0,.6); display: block; }
+.shots img.second { position: absolute; width: 46%; right: -4%; bottom: -14%; transform: rotate(2deg); box-shadow: 0 30px 80px rgba(0,0,0,.7); }
+section { padding: 90px 0 20px; }
+.kick { color: var(--ac); font-weight: 900; letter-spacing: 2px; text-transform: uppercase; font-size: 13px; text-align: center; }
+h2 { font-size: clamp(28px, 4vw, 42px); text-align: center; margin: 8px 0 12px; font-weight: 900; }
+.sub { text-align: center; color: var(--dim); max-width: 620px; margin: 0 auto 40px; }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.card { padding: 22px; border-radius: 18px; background: linear-gradient(160deg, var(--bg2), rgba(13,21,40,.6)); border: 1px solid var(--line); transition: transform .2s, border-color .2s; }
+.card:hover { transform: translateY(-4px); border-color: rgba(52,211,153,.35); }
+.card .ic { width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center; font-size: 24px; background: rgba(52,211,153,.1); border: 1px solid rgba(52,211,153,.22); }
+.card h3 { margin: 14px 0 6px; font-size: 18px; }
+.card p { margin: 0; color: var(--dim); font-size: 14.5px; }
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; counter-reset: s; }
+.step { padding: 24px; border-radius: 18px; background: var(--bg2); border: 1px solid var(--line); position: relative; }
+.step::before { counter-increment: s; content: counter(s); position: absolute; top: -16px; left: 22px; width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font-weight: 900; background: linear-gradient(135deg, var(--ac), var(--ac2)); color: #032018; }
+.step h3 { margin: 8px 0 6px; } .step p { margin: 0; color: var(--dim); font-size: 14.5px; }
+.code { display: inline-block; margin-top: 10px; font: 800 18px ui-monospace, Consolas, monospace; letter-spacing: 2px; color: var(--warm); padding: 6px 12px; border-radius: 10px; border: 1px dashed rgba(251,191,36,.5); background: rgba(0,0,0,.25); }
+.install { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.install .card b { display: block; font-size: 17px; margin: 10px 0 4px; }
+details { background: var(--bg2); border: 1px solid var(--line); border-radius: 14px; padding: 14px 18px; margin-bottom: 10px; }
+details summary { cursor: pointer; font-weight: 800; }
+details p { color: var(--dim); margin: 10px 0 0; }
+.final { text-align: center; padding: 60px 24px; border-radius: 26px; margin-top: 30px; background: radial-gradient(circle at 30% 0%, rgba(52,211,153,.25), transparent 55%), radial-gradient(circle at 80% 100%, rgba(34,211,238,.2), transparent 55%), var(--bg2); border: 1px solid var(--line); }
+.final h2 { margin-top: 0; }
+footer { padding: 50px 0 40px; color: var(--dim); font-size: 14px; text-align: center; }
+footer .brand { justify-content: center; margin-bottom: 10px; color: var(--text); }
+.reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s, transform .6s; }
+.reveal.in { opacity: 1; transform: none; }
+@media (max-width: 860px) { .grid, .steps, .install { grid-template-columns: 1fr; } nav .links { display: none; } .shots img.second { display: none; } .hero h1 { letter-spacing: 6px; } }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } .reveal { opacity: 1; transform: none; } }
+</style>
+</head>
+<body>
+<div class="bgfx" aria-hidden="true"></div>
+<nav><div class="wrap">
+  <a class="brand" href="#"><img src="icon-192.png" alt="ØLVEX simgesi">ØLVEX</a>
+  <div class="links"><a href="#ozellikler">Özellikler</a><a href="#nasil">Nasıl başlarım?</a><a href="#indir">İndir</a><a href="#sss">SSS</a></div>
+  <a class="btn pri sm app-link" href="#" style="margin-left:auto">Uygulamayı aç</a>
+</div></nav>
+
+<header class="hero wrap">
+  <span class="status" id="status"><i></i><span>Sunucu kontrol ediliyor…</span></span>
+  <img class="logo" src="icon-192.png" alt="ØLVEX">
+  <h1>ØLVEX</h1>
+  <p class="alt">OLVEX · SESLİ SOHBET · EKRAN PAYLAŞIMI · GRUPLAR</p>
+  <p class="lead">Arkadaşlarınla kristal net konuş, oyununu sesi kesmeden <b>2K 60 fps</b> yayınla, gruplarda buluş. Ücretsiz, reklamsız ve kurulum gerektirmeden tarayıcıda çalışır.</p>
+  <div class="ctas">
+    <a class="btn pri app-link" href="#">Hemen başla — ücretsiz</a>
+    <a class="btn sec" href="#ozellikler">Neler var?</a>
+  </div>
+  <small class="note">Hesap açmak 10 saniye sürer. İstersen masaüstüne uygulama olarak da indirebilirsin.</small>
+  <div class="shots reveal">
+    <img src="ekran-anasayfa.jpg" alt="ØLVEX ana sayfası: tanıtım alanı, profil ve kişi arama" loading="lazy" width="1360" height="860">
+    <img class="second" src="ekran-grup.jpg" alt="ØLVEX grup görünümü: sohbet odaları, sesli bağlantı ve üyeler" loading="lazy" width="1360" height="860">
+  </div>
+</header>
+
+<section id="ozellikler" class="wrap">
+  <div class="kick">Özellikler</div>
+  <h2>Oyun gecesi için ihtiyacın olan her şey</h2>
+  <p class="sub">Discord benzeri ama sade: odaya gir, konuş, paylaş. Hepsi tek pencerede.</p>
+  <div class="grid">
+    <div class="card reveal"><div class="ic">🎧</div><h3>Kristal net ses</h3><p>Gürültü ve yankı engelleme, kayıp paket telafisi ve ayarlanabilir tamponla kesilmeyen, cızırtısız ses.</p></div>
+    <div class="card reveal"><div class="ic">🖥️</div><h3>2K 60 fps yayın</h3><p>Sesi kesmeden ekranını paylaş. Oyun modu ekran kartını kullanır; oyunun FPS'ine ve pingine neredeyse dokunmaz.</p></div>
+    <div class="card reveal"><div class="ic">🎚️</div><h3>İzleyen seçer</h3><p>İzleyenler kaliteyi kendi bilgisayarına göre (2K, 1080p, 720p, 480p) düşürebilir; yayıncıyı yormaz.</p></div>
+    <div class="card reveal"><div class="ic">💬</div><h3>Sohbet odaları</h3><p>Her odada hem yazı hem ses. Odanın adına tıkla, içeri gir. İstersen odaya şifre koy.</p></div>
+    <div class="card reveal"><div class="ic">👑</div><h3>Gruplar ve roller</h3><p>Kurucu, yönetici, moderatör ve tek tek yetkiler. Davet bağlantısıyla arkadaşlarını tek tıkla çağır.</p></div>
+    <div class="card reveal"><div class="ic">🤝</div><h3>8 haneli arkadaş kodu</h3><p>Kodunu paylaş, arkadaşın aramaya yazsın. Saniyeler içinde arkadaş olun, özel mesaj ve arama başlasın.</p></div>
+    <div class="card reveal"><div class="ic">📊</div><h3>Oylama, çıkartma, sesli mesaj</h3><p>Ne oynanacağını oylayın, çıkartmalarla eğlenin, sesli mesaj ve dosya gönderin.</p></div>
+    <div class="card reveal"><div class="ic">🔔</div><h3>Bildirimler</h3><p>Yeni mesaj ve aramalar masaüstü bildirimi olarak gelir; simgede okunmamış sayısı görünür.</p></div>
+    <div class="card reveal"><div class="ic">🛡️</div><h3>Reklamsız ve güvenli</h3><p>Reklam yok, takip yok. Şifreler korunur, bağlantı şifrelidir, sesli konuşmalar kaydedilmez.</p></div>
+  </div>
+</section>
+
+<section id="nasil" class="wrap">
+  <div class="kick">Nasıl başlarım?</div>
+  <h2>Üç adımda arkadaşlarınla konuş</h2>
+  <p class="sub">İndirme zorunlu değil; bağlantıya tıklaman yeterli.</p>
+  <div class="steps">
+    <div class="step reveal"><h3>Hesabını aç</h3><p>Kullanıcı adı, e-posta ve şifre. Hepsi bu. Hesabın açılınca sana özel arkadaş kodun hazır olur.</p></div>
+    <div class="step reveal"><h3>Kodunu paylaş</h3><p>Arkadaşın kodunu ya da adını aramaya yazsın, istek gelsin, kabul et.</p><span class="code">4821 9A37</span></div>
+    <div class="step reveal"><h3>Odaya gir</h3><p>Grup kur, sohbet odası aç, adına tıkla. Konuşmaya başla, istersen ekranını paylaş.</p></div>
+  </div>
+</section>
+
+<section id="indir" class="wrap">
+  <div class="kick">İndir</div>
+  <h2>Her cihazda ØLVEX</h2>
+  <p class="sub">ØLVEX bağlantısını açtıktan sonra kendi penceresinde çalışan bir uygulama olarak yükleyebilirsin. Güncellemeler kendiliğinden gelir.</p>
+  <div class="install">
+    <div class="card reveal"><div class="ic">💻</div><b>Windows / Mac</b><p>Chrome ya da Edge ile aç, giriş ekranındaki <i>“ØLVEX'i masaüstüne indir”</i> düğmesine bas. Masaüstüne simgesi gelir.</p></div>
+    <div class="card reveal"><div class="ic">🤖</div><b>Android</b><p>Chrome ile aç, sağ üstteki ⋮ menüsünden <i>“Uygulamayı yükle”</i> ya da <i>“Ana ekrana ekle”</i>yi seç.</p></div>
+    <div class="card reveal"><div class="ic">🍎</div><b>iPhone / iPad</b><p>Safari ile aç, alttaki Paylaş (□↑) düğmesine bas ve <i>“Ana Ekrana Ekle”</i>yi seç.</p></div>
+  </div>
+  <p style="text-align:center;margin-top:26px"><a class="btn pri app-link" href="#">ØLVEX'i aç</a></p>
+</section>
+
+<section id="sss" class="wrap">
+  <div class="kick">Sık sorulanlar</div>
+  <h2>Merak edilenler</h2>
+  <div style="max-width:760px;margin:30px auto 0">
+    <details class="reveal"><summary>ØLVEX ücretli mi?</summary><p>Hayır. ØLVEX tamamen ücretsiz ve reklamsızdır.</p></details>
+    <details class="reveal"><summary>OLVEX ile ØLVEX aynı şey mi?</summary><p>Evet. Adımız ØLVEX; klavyede Ø yazmak zor olduğu için “OLVEX” diye de yazılır.</p></details>
+    <details class="reveal"><summary>İndirmem gerekiyor mu?</summary><p>Hayır. Tarayıcıda doğrudan çalışır. İstersen tek tıkla masaüstüne uygulama olarak indirebilirsin; giriş yapmış kalırsın ve güncellemeler kendiliğinden gelir.</p></details>
+    <details class="reveal"><summary>Oyun oynarken yayın yapmak FPS'imi düşürür mü?</summary><p>Oyun modunda yayın ekran kartının ayrı kodlama birimiyle yapılır; etkisi çok düşüktür. İzleyenler kaliteyi kendi bilgisayarlarına göre seçer.</p></details>
+    <details class="reveal"><summary>Konuşmalarım kaydediliyor mu?</summary><p>Hayır. Sesli ve görüntülü konuşmalar ile ekran paylaşımı şifrelidir, kişiler arasında doğrudan akar ve hiçbir yerde kaydedilmez.</p></details>
+    <details class="reveal"><summary>Uygulama açılmıyor, ne yapmalıyım?</summary><p>Sayfanın üstündeki durum göstergesi kırmızıysa sunucu geçici olarak kapalıdır; birkaç dakika sonra tekrar dene.</p></details>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="final reveal">
+    <h2>Ekibin seni bekliyor</h2>
+    <p class="sub" style="margin-bottom:24px">Hesabını aç, kodunu paylaş, bu akşam odada buluşun.</p>
+    <a class="btn pri app-link" href="#">Ücretsiz başla</a>
+  </div>
+</section>
+
+<footer>
+  <a class="brand" href="#"><img src="icon-192.png" alt="">ØLVEX</a>
+  <div>ØLVEX (OLVEX) · Sesli sohbet, ekran paylaşımı ve gruplar · Ücretsiz ve reklamsız</div>
+</footer>
+
+<script>
+// Uygulama adresi: tum "Uygulamayi ac" dugmeleri buraya gider
+const APP = 'https://desktop-7p8ekus.tail31d7ea.ts.net';
+document.querySelectorAll('.app-link').forEach((a) => { a.href = APP; a.rel = 'noopener'; });
+// Sunucu durumu: uygulama acik mi?
+(async () => {
+  const st = document.getElementById('status'), t = st.querySelector('span');
+  try {
+    const ctl = new AbortController(); const timer = setTimeout(() => ctl.abort(), 6000);
+    await fetch(APP + '/healthz', { mode: 'no-cors', cache: 'no-store', signal: ctl.signal });
+    clearTimeout(timer);
+    st.classList.add('on'); t.textContent = 'Sunucu çevrimiçi · hemen katılabilirsin';
+  } catch {
+    st.classList.add('off'); t.textContent = 'Sunucu şu an kapalı · biraz sonra tekrar dene';
+  }
+})();
+// Kaydirdikca beliren bolumler
+const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12 });
+document.querySelectorAll('.reveal').forEach((n) => io.observe(n));
+</script>
+</body>
+</html>
